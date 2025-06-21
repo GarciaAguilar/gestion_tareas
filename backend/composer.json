@@ -1,0 +1,16 @@
+{
+    "name": "agylar/backend",
+    "description": "Backend para gestión de tareas con jwt",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bingomar",
+            "email": "ga19033@ues.edu.sv"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "firebase/php-jwt": "^6.11"
+    }
+}
