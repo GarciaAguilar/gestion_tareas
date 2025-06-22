@@ -14,7 +14,12 @@ export class AuthService {
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   private userRole: number = 0;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
+
+  register(data: any) {
+    return this.http.post(`${this.apiUrl}/register.php`, data);
+  }
+
 
   login(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login.php`, credentials).pipe(
