@@ -3,12 +3,14 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage {
   email: string = '';
   password: string = '';
@@ -17,7 +19,7 @@ export class LoginPage {
     private authService: AuthService,
     private router: Router,
     private toastController: ToastController
-  ) {}
+  ) { }
 
   onLogin() {
     this.authService.login({ email: this.email, password: this.password }).subscribe({
@@ -48,4 +50,11 @@ export class LoginPage {
     });
     toast.present();
   }
+
+  ionViewWillEnter() {
+    this.email = '';
+    this.password = '';
+  }
+
+
 }
