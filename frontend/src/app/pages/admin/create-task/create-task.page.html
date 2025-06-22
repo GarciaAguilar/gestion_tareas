@@ -1,13 +1,42 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>create-task</ion-title>
+    <ion-title>Crear Tarea</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">create-task</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <form (ngSubmit)="crearTarea()">
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input [(ngModel)]="titulo" name="titulo" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="descripcion" name="descripcion" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de entrega</ion-label>
+      <ion-datetime
+        presentation="date"
+        [(ngModel)]="fecha"
+        name="fecha"
+        required>
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ejecutor</ion-label>
+      <ion-select [(ngModel)]="ejecutor" name="ejecutor" required>
+        <ion-select-option *ngFor="let user of ejecutores" [value]="user.id">
+          {{ user.name }} ({{ user.email }})
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" class="ion-margin-top">
+      Guardar Tarea
+    </ion-button>
+  </form>
 </ion-content>
