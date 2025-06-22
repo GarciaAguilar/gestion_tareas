@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,12 @@ export class TaskService {
     });
     return this.http.get(`${this.apiUrl}/users.php`, { headers });
   }
+
+  getTasks() {
+  const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.authService.getToken()}`
+    });
+  return this.http.get<any>(`${this.apiUrl}/task.php`, { headers });
+}
+
 }

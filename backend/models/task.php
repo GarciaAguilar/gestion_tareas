@@ -38,7 +38,7 @@ class Task {
 
     // Obtener tareas creadas por un administrador
     public function getTasksAdmin($adminId) {
-        $query = "SELECT * FROM {$this->table} WHERE created_by = ?";
+        $query = "SELECT t.id, t.title, t.description, t.due_date, t.created_by, t.assigned_to, u.name FROM {$this->table} t INNER JOIN users u ON t.assigned_to  = u.id WHERE created_by = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $adminId);
         $stmt->execute();

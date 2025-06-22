@@ -8,5 +8,20 @@
 </ion-header>
 
 <ion-content class="ion-padding">
- 
+  <ion-list *ngIf="tareas.length > 0; else sinTareas">
+    <ion-item *ngFor="let t of tareas">
+      <ion-label>
+        <h2>{{ t.title }}</h2>
+        <p>{{ t.description }}</p>
+        <p><strong>Vence:</strong> {{ t.due_date | date }}</p>
+        <p><strong>Asignado a:</strong> {{ t.name}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #sinTareas>
+    <ion-text color="medium">
+      <p>No hay tareas registradas.</p>
+    </ion-text>
+  </ng-template>
 </ion-content>
