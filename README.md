@@ -45,6 +45,33 @@ npm install
 http://localhost/gestion_tareas/dashboard/login.php
 
 
+## Datos de prueba 
+Para ver un usuario admin con datos: 
+email: ga19033@demo.com
+password: Ga19033_ues
+
+Para ver un usuario ejecutor con tareas:
+email: agylar100@gmail.com
+password: Agylar_ues
+
+## Datos de registro para crear nuevos usuarios y tareas
+
+Usuario admin
+email: adminprueba@gmail.com
+password: Admin_@ues
+
+Usuario ejecutor
+email: ejecutorprueba@gmail.com
+password: Ejecutor_@ues
+
+## Ejemplo de tarea para que la asigne un admin
+Titulo: Formulario para proveedores de producto
+Descripcion: Realizar un formulario que permita el registro
+de la información de los proveedores
+Fecha: Seleccionar fecha
+Seleccionar un el ejecutor de prueba registrado
+
+
 
 
 
