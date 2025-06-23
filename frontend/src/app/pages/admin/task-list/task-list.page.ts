@@ -19,6 +19,11 @@ export class TaskListPage implements OnInit {
     this.cargarTareas();
   }
 
+  //Recargar tareas al entrar a la opción
+  ionViewWillEnter() {
+    this.cargarTareas(); 
+  }
+
   cargarTareas() {
     this.taskService.getTasks().subscribe({
       next: res => {
