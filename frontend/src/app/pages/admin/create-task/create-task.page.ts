@@ -18,7 +18,7 @@ export class CreateTaskPage implements OnInit {
   constructor(
     private taskService: TaskService,
     private toastController: ToastController
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.taskService.getExecutors().subscribe({
@@ -27,9 +27,22 @@ export class CreateTaskPage implements OnInit {
       },
       error: () => this.presentToast('Error al cargar ejecutores')
     });
+
   }
 
   crearTarea() {
+    // Validar fecha
+    const hoy = new Date();
+    const fechaSeleccionada = new Date(this.fecha);
+
+    hoy.setHours(0, 0, 0, 0); // Limpiar horas
+    fechaSeleccionada.setHours(0, 0, 0, 0);
+
+    if (fechaSeleccionada < hoy) {
+      this.presentToast('La fecha de vencimiento no puede ser anterior a hoy');
+      return;
+    }
+
     const data = {
       title: this.titulo,
       description: this.descripcion,
@@ -49,7 +62,8 @@ export class CreateTaskPage implements OnInit {
     });
   }
 
- async presentToast(message: string, color: string = 'danger') {
+
+  async presentToast(message: string, color: string = 'danger') {
     const toast = await this.toastController.create({
       message,
       duration: 2000,
