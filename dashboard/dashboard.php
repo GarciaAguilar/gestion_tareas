@@ -10,7 +10,7 @@ $task = new Task($db);
 
 // Obtener tareas según el rol
 if ($usuario->role == 1) {
-    $tareas = $task->getTasksAdmin($usuario->id);
+    $tareas = null;
 } else {
     $tareas = $task->getTasksEjecutor($usuario->id);
 }
@@ -19,6 +19,7 @@ if ($usuario->role == 1) {
 <?php include 'includes/header.php'; ?>
 
 <div class="container mt-4">
+    <h3 class="text-center my-4">Bienvenido, <?php echo htmlspecialchars($usuario->email); ?></h3>
     <h2 class="text-center mb-4">Mis Tareas</h2>
 
     <?php if (!empty($tareas)): ?>
