@@ -18,9 +18,22 @@ export class RegisterPage {
     private authService: AuthService,
     private router: Router,
     private toastController: ToastController
-  ) {}
+  ) { }
 
   onRegister() {
+    // Validar email de manera básica
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+    if (!correoValido) {
+      this.presentToast('Ingresa un correo válido');
+      return;
+    }
+
+    // Validar contraseña de manera básica
+    if (this.password.length < 6) {
+      this.presentToast('La contraseña debe tener al menos 6 caracteres');
+      return;
+    }
+
     const data = {
       name: this.nombre,
       email: this.email,
@@ -42,6 +55,7 @@ export class RegisterPage {
       }
     });
   }
+
 
   async presentToast(msg: string, color: string = 'danger') {
     const toast = await this.toastController.create({

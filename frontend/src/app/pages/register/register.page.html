@@ -32,8 +32,9 @@
       </ion-select>
     </ion-item>
 
-    <ion-button expand="full" type="submit" class="ion-margin-top">
+    <ion-button expand="full" type="submit" class="ion-margin-top" [disabled]="!nombre || !email || !password || !rol">
       Registrarse
     </ion-button>
+
   </form>
 </ion-content>
