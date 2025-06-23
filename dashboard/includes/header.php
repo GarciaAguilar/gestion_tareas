@@ -21,8 +21,7 @@
         <div class="logo">
             <strong>TAREAS</strong>
         </div>
-        <a href="dashboard.php"><i class="bi bi-house-door-fill me-2"></i>Inicio</a>
-        <a href="tareas.php"><i class="bi bi-list-task me-2"></i>Mis Tareas</a>
+        <a href="dashboard.php"><i class="bi bi-house-door-fill me-2"></i>Tareas</a>
         <a href="logout.php"><i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión</a>
     </div>
 
